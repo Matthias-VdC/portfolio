@@ -11,6 +11,14 @@ let rightBgPatternPage1 = leftBgPatternPage1.cloneNode(true);
 rightBgPatternPage1.setAttribute('class', 'bg-pattern inverted');
 leftBgPatternPage1.appendChild(rightBgPatternPage1);
 
+let leftBgPatternPage2 = document.getElementById('projects-background');
+console.log(leftBgPatternPage2.childNodes);
+let rightBgPatternPage2 = leftBgPatternPage2.childNodes[1].cloneNode(true);
+rightBgPatternPage2.setAttribute('class', 'inverted');
+rightBgPatternPage2.setAttribute('id', '');
+leftBgPatternPage2.appendChild(rightBgPatternPage2);
+
+
 let projectsButton = false;
 document.getElementById('projects-button').addEventListener("click", (e) => {
     e.preventDefault();
