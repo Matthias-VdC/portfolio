@@ -2,7 +2,6 @@ export default function scrollToProjects(isChromium) {
     if (isChromium) {
         document.getElementById('page-2').scrollIntoView();
     } else {
-        console.log(window.innerWidth);
         document.getElementById('page-2').scrollIntoView({ behavior: 'smooth' });
     }
 
@@ -12,5 +11,6 @@ export default function scrollToProjects(isChromium) {
         svg.classList.add("bgline");
         svg.classList.remove("no-bgline");
     });
+    document.getElementById('hidden-text').innerText = 'Home';
     document.getElementById('projects-background').classList.add("projects-animation-start");
 }

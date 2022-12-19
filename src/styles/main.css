@@ -1,8 +1,47 @@
+:root {
+    --dark-or-light: #000;
+    --light-or-dark: #fff;
+    --background: #fff;
+    --darkblue-white: #fff;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --dark-or-light: #fff !important;
+        --light-or-dark: #000 !important;
+        --darkblue-white: #152742 !important;
+        --background:
+            /* linear-gradient(rgb(27, 30, 47), transparent),
+            linear-gradient(to top left, rgb(0, 5, 30), transparent),
+            linear-gradient(to top right, rgb(39, 71, 99), transparent) !important; */
+            linear-gradient(rgb(21, 24, 40), transparent),
+            linear-gradient(to top left, rgb(0, 0, 0), transparent),
+            linear-gradient(to top right, rgb(4, 33, 58), transparent) !important;
+    }
+    #gate-svg path {
+        fill: #071423 !important;
+        stroke: #fff !important;
+    }
+    #projects-button {
+        border: 0.5px solid white !important;
+        background-color: rgba(7, 20, 35, 0.9) !important;
+    }
+    #hidden-text {
+        -webkit-text-fill-color: #fff !important;
+    }
+    .name svg{
+        background-color: rgba(0,0,0,0) !important;
+    }
+}
+
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    stroke: var(--dark-or-light);
 }
 body, html {
     height: 100%;
@@ -10,10 +49,12 @@ body, html {
     overflow-x: visible;
     margin: 0;
     padding: 0;
+    background: var(--background);
+    background-blend-mode: screen;
 }
 
 #main-container {
-    width: calc(100vw * 2);
+    width: calc(100vw * 3);
     min-height: 100vh;
     justify-content: center;
     align-items: center;
@@ -42,7 +83,15 @@ body, html {
     width: 100vw;
     height: 100vh;
 	scroll-snap-align: start;
-    overflow-y: hidden;
+    overflow-y: scroll;
+}
+
+#page-3 {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+	scroll-snap-align: start;
+    overflow-y: scroll;
 }
 
 .page-2-project-gate {
@@ -68,21 +117,21 @@ body, html {
 .page-2-prototype-container {
     position: relative;
     background-color: #000;
-    width: 40%;
-    height: 50%;
+    width: 550px;
+    height: 300px;
     transition: all 0.35s ease-out;
     z-index: -99;
     margin-bottom: 64px;
 }
 
 .page-2-project-gate svg {
-    border: 1px solid black;
+    border: 1px solid var(--dark-or-light);
     position: absolute;
     width: 100%;
     height: 100%;
     stroke-width: 2px;
     cursor: pointer;
-    fill: #fff;
+    fill: var(--darkblue-white);
     z-index: 9;
 }
 
@@ -103,12 +152,13 @@ body, html {
     left: 50%;
     transform: translateX(-50%);
     user-select: none;
+    color: var(--dark-or-light);
 }
 
 .page-2-project-gate svg polyline{
     width: 100%;
     height: 100%;
-    stroke:black;
+    stroke: var(--dark-or-light);
 }
 
 .page-2-project-gate svg:hover .gate-brick:nth-child(1),
@@ -218,7 +268,7 @@ body, html {
 #matthias-svg path, #vande-svg path, #casteele-svg path {
     stroke-dasharray: 2100px;
     stroke-dashoffset: 2100px;
-    stroke: #000;
+    stroke: var(--dark-or-light);
     stroke-width: 6px;
     width: 100%;
 }
@@ -325,8 +375,6 @@ body, html {
     min-height: 1px;
 }
 
-.lines-1 {
-}
 .lines-3 {
     animation: backandforth 2.4s ease-in-out alternate-reverse infinite;
 }
@@ -527,7 +575,7 @@ body, html {
 
 @keyframes fill {
     to {
-        fill: #000;
+        fill: var(--dark-or-light);
     }
 }
 
